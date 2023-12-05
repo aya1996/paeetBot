@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 13, 2023 at 11:23 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.29
+-- Host: 127.0.0.1:3306
+-- Generation Time: Dec 05, 2023 at 07:22 PM
+-- Server version: 5.7.36
+-- PHP Version: 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `chatbot`
+-- Database: `paeetbot`
 --
 
 -- --------------------------------------------------------
@@ -27,21 +27,23 @@ SET time_zone = "+00:00";
 -- Table structure for table `abouts`
 --
 
-CREATE TABLE `abouts` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `abouts`;
+CREATE TABLE IF NOT EXISTS `abouts` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `dialog` int(11) NOT NULL DEFAULT 0,
+  `dialog` int(11) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `abouts`
 --
 
 INSERT INTO `abouts` (`id`, `description`, `image`, `dialog`, `created_at`, `updated_at`) VALUES
-(1, 'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام \"هنا يوجد محتوى نصي، هنا يوجد محتوى نصي\" فتجعلها تبدو (أي الأحرف) وكأنها نص مقروء.', 'storage/abouts/iYaAq4tLuY4773tyBWut5obJsTUSyiOrpugTL9so.jpg', 0, '2023-04-02 17:19:26', '2023-04-24 20:19:16');
+(1, 'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام \"هنا يوجد محتوى نصي، هنا يوجد محتوى نصي\" فتجعلها تبدو (أي الأحرف) وكأنها نص مقروء.', 'storage/abouts/HSOckyalau3uhVUYZYJDGhw8dkd4tDIRDSV9Xmm8.png', 1, '2023-04-02 17:19:26', '2023-12-04 21:10:14');
 
 -- --------------------------------------------------------
 
@@ -49,7 +51,8 @@ INSERT INTO `abouts` (`id`, `description`, `image`, `dialog`, `created_at`, `upd
 -- Table structure for table `admins`
 --
 
-CREATE TABLE `admins` (
+DROP TABLE IF EXISTS `admins`;
+CREATE TABLE IF NOT EXISTS `admins` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -57,7 +60,8 @@ CREATE TABLE `admins` (
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -65,7 +69,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `name`, `email`, `password`, `image`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@admin.com', '$2y$10$9FDNeRr6D.qET66oha.WNO3tiIMdBFPRZI13JR39jow89vlnd/Ini', NULL, NULL, NULL, NULL);
+(1, 'Admin', 'admin@admin.com', '$2y$10$qUjIH4jPH72Lw8ECRt2pP.aO5acA01DxzHORpOifk/unuihHd5BIi', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -73,15 +77,18 @@ INSERT INTO `admins` (`id`, `name`, `email`, `password`, `image`, `remember_toke
 -- Table structure for table `contacts`
 --
 
-CREATE TABLE `contacts` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `contacts`;
+CREATE TABLE IF NOT EXISTS `contacts` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `phone` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `msg` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `contacts`
@@ -89,7 +96,8 @@ CREATE TABLE `contacts` (
 
 INSERT INTO `contacts` (`id`, `name`, `email`, `phone`, `msg`, `created_at`, `updated_at`) VALUES
 (3, '7DH28uLemG', 'itsqw@j4bt.com', '6792812669', 'flKL9iVs9o', '2023-04-02 20:26:40', '2023-04-02 20:26:40'),
-(4, 'hpTOFFmPLp', '6hhie@40sd.com', '2151044288', 'YUKuNhJ4e4', '2023-04-26 18:37:16', '2023-04-26 18:37:16');
+(4, 'hpTOFFmPLp', '6hhie@40sd.com', '2151044288', 'YUKuNhJ4e4', '2023-04-26 18:37:16', '2023-04-26 18:37:16'),
+(5, 'Kaden Cherry', 'gavoxeh@mailinator.com', '0124577885', 'Est dolor dolores n', '2023-12-04 20:56:09', '2023-12-04 20:56:09');
 
 -- --------------------------------------------------------
 
@@ -97,15 +105,17 @@ INSERT INTO `contacts` (`id`, `name`, `email`, `phone`, `msg`, `created_at`, `up
 -- Table structure for table `dialogs`
 --
 
-CREATE TABLE `dialogs` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `dialogs`;
+CREATE TABLE IF NOT EXISTS `dialogs` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `answer` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `question` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `video` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `question` text COLLATE utf8mb4_unicode_ci,
+  `image` text COLLATE utf8mb4_unicode_ci,
+  `video` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `dialogs`
@@ -121,14 +131,15 @@ INSERT INTO `dialogs` (`id`, `answer`, `question`, `image`, `video`, `created_at
 -- Table structure for table `failed_jobs`
 --
 
-CREATE TABLE `failed_jobs` (
+DROP TABLE IF EXISTS `failed_jobs`;
+CREATE TABLE IF NOT EXISTS `failed_jobs` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -137,24 +148,28 @@ CREATE TABLE `failed_jobs` (
 -- Table structure for table `f_a_q_s`
 --
 
-CREATE TABLE `f_a_q_s` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `f_a_q_s`;
+CREATE TABLE IF NOT EXISTS `f_a_q_s` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `question` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `answer` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `video` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `answer` longtext COLLATE utf8mb4_unicode_ci,
+  `video` text COLLATE utf8mb4_unicode_ci,
+  `image` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `f_a_q_s`
 --
 
 INSERT INTO `f_a_q_s` (`id`, `question`, `answer`, `video`, `image`, `created_at`, `updated_at`) VALUES
-(1, 'hi', 'hi', NULL, 'storage/faqs/lUyeMf6xjXlpPyacXpNmhtOvmnxsJecx1tdJbHX3.png', '2023-03-23 08:53:59', '2023-04-16 18:04:23'),
+(1, 'hi', 'hi', NULL, 'storage/faqs/MZ6xTqlSXxoBqVYUSjRV3ccvH5U1uoneZ9f3JuxZ.png', '2023-03-23 08:53:59', '2023-12-05 07:12:10'),
 (3, 'good morning', 'good morning', 'H_bB0sAqLNg', NULL, '2023-03-23 08:55:48', '2023-04-16 19:37:56'),
-(5, 'مرحبا', 'مرحبا كيف الحال', NULL, NULL, '2023-03-27 11:08:57', '2023-03-27 11:08:57');
+(5, 'مرحبا', 'مرحبا كيف الحال', NULL, NULL, '2023-03-27 11:08:57', '2023-03-27 11:08:57'),
+(6, 'كيف حالك', 'بخير الحمد لله', NULL, NULL, '2023-12-04 20:06:59', '2023-12-04 20:06:59'),
+(7, 'كم عمرك؟', '20', NULL, NULL, '2023-12-04 21:00:29', '2023-12-04 21:00:29');
 
 -- --------------------------------------------------------
 
@@ -162,22 +177,25 @@ INSERT INTO `f_a_q_s` (`id`, `question`, `answer`, `video`, `image`, `created_at
 -- Table structure for table `galleries`
 --
 
-CREATE TABLE `galleries` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `galleries`;
+CREATE TABLE IF NOT EXISTS `galleries` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `image` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `galleries`
 --
 
 INSERT INTO `galleries` (`id`, `image`, `created_at`, `updated_at`) VALUES
-(1, 'storage/galleries/6mNFWU1KkUkKL4FfjS1tHhNY12uXixTzqRHLvtvC.jpg', '2023-04-02 19:13:28', '2023-04-02 19:13:28'),
+(1, 'storage/galleries/a8aACa490rfHoU64qH7sm2Q2FR5xts9p3XQr3JML.webp', '2023-04-02 19:13:28', '2023-12-04 20:43:39'),
 (2, 'storage/galleries/kjZGHgzlC8LfKikagYJ0IF9XMzA0EHYL3ym7EzDO.jpg', '2023-04-02 19:17:28', '2023-04-02 19:17:28'),
 (3, 'storage/galleries/vWDk9mN7UwW9DNg9ZVgzw5uCF0Fmcv3iEutHXZ8b.jpg', '2023-04-02 19:17:36', '2023-04-02 19:17:36'),
-(4, 'storage/galleries/Ei4OAAGJh2wuhykZaAOI9mEPCjf0GCN2t32tOb2l.png', '2023-04-02 19:17:49', '2023-04-02 19:17:49');
+(4, 'storage/galleries/llopiiKyLpbvogGgcA186zLLvn36dvxBjwIYZVkY.png', '2023-04-02 19:17:49', '2023-12-04 20:07:46'),
+(6, 'storage/galleries/Bb1BVWCW9TP8V9MFedYh5BS8jDDzJoqDWVeS6QG4.jpg', '2023-12-04 21:11:35', '2023-12-04 21:11:35');
 
 -- --------------------------------------------------------
 
@@ -185,10 +203,12 @@ INSERT INTO `galleries` (`id`, `image`, `created_at`, `updated_at`) VALUES
 -- Table structure for table `migrations`
 --
 
-CREATE TABLE `migrations` (
+DROP TABLE IF EXISTS `migrations`;
+CREATE TABLE IF NOT EXISTS `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `batch` int(11) NOT NULL
+  `batch` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -216,12 +236,14 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- Table structure for table `not_founds`
 --
 
-CREATE TABLE `not_founds` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `not_founds`;
+CREATE TABLE IF NOT EXISTS `not_founds` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `title` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `not_founds`
@@ -241,7 +263,13 @@ INSERT INTO `not_founds` (`id`, `title`, `created_at`, `updated_at`) VALUES
 (12, 'test', '2023-04-16 22:37:44', '2023-04-16 22:37:44'),
 (13, 'madkdak', '2023-04-16 22:52:20', '2023-04-16 22:52:20'),
 (14, 'ijasoifjoias', '2023-04-24 20:16:37', '2023-04-24 20:16:37'),
-(15, 'h', '2023-04-24 20:19:25', '2023-04-24 20:19:25');
+(15, 'h', '2023-04-24 20:19:25', '2023-04-24 20:19:25'),
+(16, 'hghgh', '2023-12-04 20:56:57', '2023-12-04 20:56:57'),
+(17, 'val', '2023-12-04 21:01:50', '2023-12-04 21:01:50'),
+(18, 'val1', '2023-12-04 21:01:56', '2023-12-04 21:01:56'),
+(19, 'dff', '2023-12-04 21:02:29', '2023-12-04 21:02:29'),
+(20, 'fffffff', '2023-12-04 21:05:36', '2023-12-04 21:05:36'),
+(21, 'hghghgh', '2023-12-04 21:10:24', '2023-12-04 21:10:24');
 
 -- --------------------------------------------------------
 
@@ -249,7 +277,8 @@ INSERT INTO `not_founds` (`id`, `title`, `created_at`, `updated_at`) VALUES
 -- Table structure for table `password_resets`
 --
 
-CREATE TABLE `password_resets` (
+DROP TABLE IF EXISTS `password_resets`;
+CREATE TABLE IF NOT EXISTS `password_resets` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
@@ -261,13 +290,14 @@ CREATE TABLE `password_resets` (
 -- Table structure for table `personal_access_tokens`
 --
 
-CREATE TABLE `personal_access_tokens` (
+DROP TABLE IF EXISTS `personal_access_tokens`;
+CREATE TABLE IF NOT EXISTS `personal_access_tokens` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tokenable_id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `abilities` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `abilities` text COLLATE utf8mb4_unicode_ci,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -279,21 +309,23 @@ CREATE TABLE `personal_access_tokens` (
 -- Table structure for table `sliders`
 --
 
-CREATE TABLE `sliders` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `sliders`;
+CREATE TABLE IF NOT EXISTS `sliders` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `title` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `sliders`
 --
 
 INSERT INTO `sliders` (`id`, `title`, `description`, `image`, `created_at`, `updated_at`) VALUES
-(1, 'عنوان تجريبي', 'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها.', 'storage/sliders/kL6DjRNRmjqY4URgCqmmgkM7HCMhHGEisBhps3BY.jpg', '2023-04-02 17:52:57', '2023-04-26 18:12:07'),
+(1, 'عنوان تجريبي', 'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها.', 'storage/sliders/pATtf55uJ1YVGYlfTm2KTUcPFlae1Kle7z0l6qq7.webp', '2023-04-02 17:52:57', '2023-12-04 20:42:34'),
 (2, 'عنوان تجريبي 2', 'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها.', 'storage/sliders/6sx8zw2EvVkReKVPbvSfNoPKOFNHbPYveafAWNQY.webp', '2023-04-02 17:53:19', '2023-04-26 18:11:09');
 
 -- --------------------------------------------------------
@@ -302,22 +334,25 @@ INSERT INTO `sliders` (`id`, `title`, `description`, `image`, `created_at`, `upd
 -- Table structure for table `testimonails`
 --
 
-CREATE TABLE `testimonails` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `testimonails`;
+CREATE TABLE IF NOT EXISTS `testimonails` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `job_title` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `testimonails`
 --
 
 INSERT INTO `testimonails` (`id`, `name`, `job_title`, `description`, `image`, `created_at`, `updated_at`) VALUES
-(1, 'محمد احمد', 'CEO', 'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ”', 'storage/testimonails/EZ3KQ2JGp1YXLAF1uEd81z1X3W0KJ7UrGHcYRDxM.jpg', '2023-04-02 21:15:24', '2023-04-02 21:17:44');
+(1, 'احمدعلي', 'المدير العام', 'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ”', 'storage/testimonails/6vsKN6UsOzLfakpIvjOhi3QIlns2IhvY6MQ4cnso.jpg', '2023-04-02 21:15:24', '2023-12-05 07:08:10'),
+(2, 'ابراهيم محمد', 'اخصائي برمجة', 'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام \"هنا يوجد محتوى نصي، هنا يوجد محتوى نصي\" فتجعلها تبدو (أي الأحرف) وكأنها نص مقروء.', 'storage/testimonails/UrpzAg5RlqhQTfn4Sk4dsbQ1f9ZnMk61it9rx7AQ.png', '2023-12-04 21:39:13', '2023-12-04 21:39:13');
 
 -- --------------------------------------------------------
 
@@ -325,17 +360,19 @@ INSERT INTO `testimonails` (`id`, `name`, `job_title`, `description`, `image`, `
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
@@ -343,183 +380,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `image`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, '123123123', 'ahmed@123.com', 'storage/users/qjOS9waih7yTlwObbuE7G2Su2l35iOLw2Z4Ss3TW.jpg', NULL, '$2y$10$WIQThIKCcrGtOx/bO9nnBO0uTUVz57C39n4zFThY4XdGbczAJn61S', NULL, '2023-03-20 09:07:15', '2023-05-13 06:22:22'),
-(3, 'ali', 'ali@123.com', 'storage/users/wOQFwfJK6RzSmWPGEN56qja0bnYZT0zcDLI3Eh37.jpg', NULL, '$2y$10$abWLl078cflNdbHDolU1QeAJ4i6zXd.BSBH/mG3iur1mnaJ8RzjNm', NULL, '2023-05-13 06:10:02', '2023-05-13 06:10:02');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `abouts`
---
-ALTER TABLE `abouts`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `admins`
---
-ALTER TABLE `admins`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `admins_email_unique` (`email`);
-
---
--- Indexes for table `contacts`
---
-ALTER TABLE `contacts`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `dialogs`
---
-ALTER TABLE `dialogs`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `dialogs_parent_id_foreign` (`question`(768));
-
---
--- Indexes for table `failed_jobs`
---
-ALTER TABLE `failed_jobs`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
-
---
--- Indexes for table `f_a_q_s`
---
-ALTER TABLE `f_a_q_s`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `galleries`
---
-ALTER TABLE `galleries`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `migrations`
---
-ALTER TABLE `migrations`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `not_founds`
---
-ALTER TABLE `not_founds`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `password_resets`
---
-ALTER TABLE `password_resets`
-  ADD KEY `password_resets_email_index` (`email`);
-
---
--- Indexes for table `personal_access_tokens`
---
-ALTER TABLE `personal_access_tokens`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
-  ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
-
---
--- Indexes for table `sliders`
---
-ALTER TABLE `sliders`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `testimonails`
---
-ALTER TABLE `testimonails`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `abouts`
---
-ALTER TABLE `abouts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `admins`
---
-ALTER TABLE `admins`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `contacts`
---
-ALTER TABLE `contacts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `dialogs`
---
-ALTER TABLE `dialogs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `failed_jobs`
---
-ALTER TABLE `failed_jobs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `f_a_q_s`
---
-ALTER TABLE `f_a_q_s`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `galleries`
---
-ALTER TABLE `galleries`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `migrations`
---
-ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
---
--- AUTO_INCREMENT for table `not_founds`
---
-ALTER TABLE `not_founds`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- AUTO_INCREMENT for table `personal_access_tokens`
---
-ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `sliders`
---
-ALTER TABLE `sliders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `testimonails`
---
-ALTER TABLE `testimonails`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+(3, 'ali', 'ali@123.com', 'storage/users/wOQFwfJK6RzSmWPGEN56qja0bnYZT0zcDLI3Eh37.jpg', NULL, '$2y$10$abWLl078cflNdbHDolU1QeAJ4i6zXd.BSBH/mG3iur1mnaJ8RzjNm', NULL, '2023-05-13 06:10:02', '2023-05-13 06:10:02'),
+(4, 'Abraham Sampson', 'aya@gmail.com', 'storage/users/NF75FR4Gx9aTMeRq8EIScdGFWBMftTTADFA4gewe.jpg', NULL, '$2y$10$feTjxRZ3F5c0sVI0F6cmLew2Af/Umnr2i023mqa.edWqT9oabUUKq', NULL, '2023-12-04 20:58:07', '2023-12-04 20:58:07');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
