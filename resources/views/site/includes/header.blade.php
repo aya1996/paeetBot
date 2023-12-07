@@ -52,7 +52,7 @@
                                     </li>
                                     <li>
                                         <a href="{{route('home')}}#testimonails" class="current-menu-item">
-                                            <span> آراء العملاء </span>
+                                            <span> آراء الطلاب </span>
                                         </a>
                                     </li>
                                     <li>
