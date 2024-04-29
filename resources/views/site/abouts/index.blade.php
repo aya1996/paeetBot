@@ -7,7 +7,8 @@
     <div class="img-overlay">
         <img src="{{asset('front/images/slider2.jpg')}}" alt="#" />
     </div>
-    <div class="container">
+    <div class="m-5"></div>
+    <div class="container m-5">
         <div class="row">
             <div class="col-md-12">
                 <div class="text-bread">

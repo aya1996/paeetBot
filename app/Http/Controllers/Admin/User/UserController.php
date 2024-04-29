@@ -38,7 +38,7 @@ class UserController extends Controller
                 return back()->with('failed' , 'هناك خطأ ما فضلا المحاولة لاحقا');
             }
         }
-        catch(Exception $ex)
+        catch(\Exception $ex)
         {
             return back()->with('failed' , 'هناك خطأ ما فضلا المحاولة لاحقا');
         }
@@ -49,6 +49,7 @@ class UserController extends Controller
         try
         {
             $user = new User;
+            $user->national_id = $request->national_id;
             $user->name = $request->name;
             $user->email = $request->email;
             $user->password = bcrypt($request->password);
@@ -70,7 +71,8 @@ class UserController extends Controller
             if(isset($user))
             {
                 $user->update([
-                    'name' => $request->name,
+                    'national_id'=> $request->national_id,
+                    'name' => $request->full_name,
                     'email' => $request->email,
                     'password' => $request->password ? bcrypt($request->password) : $user->password,
                     'image' => $request->image ?  $this->updateFile('image','users',$user->image) : $user->image,

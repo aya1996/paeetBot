@@ -31,10 +31,16 @@
                     <div class="modal-body">
                         <div class="card-body">
                             <div class="row">
+                            <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>الرقم المدني</label>
+                                        <input type="number"  name="national_id" class="form-control" value="{{$user->national_id}}" placeholder="الرقم المدني" required>
+                                    </div>
+                                </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>الإسم</label>
-                                        <input type="text"  name="name" class="form-control" value="{{$user->name}}" placeholder="الإسم" required>
+                                        <input type="text"  name="full_name" class="form-control" value="{{$user->name}}" placeholder="الإسم" required>
                                     </div>
                                 </div>
                                 <div class="col-md-12">

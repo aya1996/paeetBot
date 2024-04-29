@@ -38,7 +38,7 @@ class FAQController extends Controller
                 return back()->with('failed' , 'حدثت مشكلة  ما فضلا المراجعة');
             }
         }
-        catch(Exception $ex)
+        catch(\Exception $ex)
         {
             return back()->with('failed' , 'حدثت مشكلة  ما فضلا المراجعة');
         }

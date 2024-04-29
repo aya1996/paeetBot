@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Contact;
 use App\Models\Contact;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FAQ\FAQRequest;
+use App\Models\FAQ;
 
 class ContactController extends Controller
 {
@@ -36,7 +37,7 @@ class ContactController extends Controller
                 return back()->with('failed' , 'حدثت مشكلة  ما فضلا المراجعة');
             }
         }
-        catch(Exception $ex)
+        catch(\Exception $ex)
         {
             return back()->with('failed' , 'حدثت مشكلة  ما فضلا المراجعة');
         }

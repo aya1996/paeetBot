@@ -1,5 +1,5 @@
 <footer class="main-footer">
-    <strong> كل الحقوق    <a href="{{route('home')}}">لموقع PaeetBot  </a>.</strong> محفوظة &copy; <script>document.write(new Date().getFullYear());</script>
+    <strong> كل الحقوق    <a href="{{route('home')}}">  لموقع PaaetBot  </a>.</strong> محفوظة &copy; <script>document.write(new Date().getFullYear());</script>
 </footer>
 
 <!-- Control Sidebar -->

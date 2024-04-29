@@ -7,7 +7,8 @@
     <div class="img-overlay">
         <img src="{{asset('front/images/slider2.jpg')}}" alt="#" />
     </div>
-    <div class="container">
+    <div class="m-5"></div>
+    <div class="container m-5">
         <div class="row">
             <div class="col-md-12">
                 <div class="text-bread">
@@ -40,9 +41,13 @@
 
                             <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                                 @csrf
+                                 <div class="form-group">
+                                    <label>الرقم المدني</label>
+                                    <input type="number" class="form-control" name="national_id"  required autofocus>
+                                </div>
                                 <div class="form-group">
                                     <label>الاسم</label>
-                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" >
 
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">

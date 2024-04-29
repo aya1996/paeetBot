@@ -56,7 +56,7 @@
                             </li>
                             <li>
                                 <a href="{{route('home')}}#testimonails">
-                                    <span> آراء العملاء </span>
+                                    <span> آراء الطلاب </span>
                                 </a>
                             </li>
                         </ul>
@@ -72,12 +72,12 @@
                             <li>
                                 <a href="mailto:info@domainname.com">
                                     الايميل:
-                                    <u>info@domainname.com</u>
+                                    <u>@paaet.edu.kw</u>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    الجوال:
+                                    رقم الهاتف:
                                     <u>976564456</u>
                                 </a>
                             </li>
@@ -98,7 +98,7 @@
                 <!-- Col -->
                 <div class="col-md-12 col-sm-12 wow animate__animated animate__fadeIn">
                     <div class="capy-right">
-                        <p>&copy; جميع الحقوق محفوظة  - <script>document.write(new Date().getFullYear());</script></p>
+                        <p>&copy; جميع الحقوق محفوظة  - <script>document.write(new Date().getFullYear());</script> - لموقع PaaetBot</p>
                     </div>
                 </div>
                 <!-- /Col -->
@@ -110,6 +110,8 @@
 <!-- End Footer -->
 
 <script src="{{asset('front/js/jquery-1.11.0.min.js')}}"></script>
+<!-- Bootstrap 4 -->
+<script src="{{asset('dashboard/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('front/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('front/js/owl.carousel.min.js')}}"></script>
 <script src="{{asset('front/js/wow.min.js')}}"></script>

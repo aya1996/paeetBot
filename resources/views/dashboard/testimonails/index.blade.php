@@ -10,12 +10,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-        <h1>آراء العملاء</h1>
+        <h1>آراء الطلاب</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">الرئيسية</a></li>
-              <li class="breadcrumb-item active">آراء العملاء</li>
+              <li class="breadcrumb-item active">آراء الطلاب</li>
             </ol>
           </div>
         </div>
@@ -40,7 +40,7 @@
                   <tr>
                     <th class="text-center">#</th>
                     <th class="text-center">الإسم</th>
-                    <th class="text-center">المسمي الوظيفي</th>
+                    <th class="text-center"> عنوان الرأي</th>
                     <th class="text-center">الوصف</th>
                     <th class="text-center">الصورة</th>
                     <th class="text-center">التحكم</th>
@@ -137,8 +137,8 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>المسمي الوظيفي</label>
-                                    <input type="text"  name="job_title" class="form-control" placeholder="المسمي الوظيفي" value="{{old('job_title')}}" required></input>
+                                    <label>العنوان</label>
+                                    <input type="text"  name="job_title" class="form-control" placeholder=" العنوان" value="{{old('job_title')}}" required></input>
                                 </div>
                             </div>
                             <div class="col-md-12">

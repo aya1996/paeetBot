@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 05, 2023 at 07:22 PM
+-- Generation Time: Dec 17, 2023 at 07:34 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `contacts` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `contacts`
@@ -97,7 +97,8 @@ CREATE TABLE IF NOT EXISTS `contacts` (
 INSERT INTO `contacts` (`id`, `name`, `email`, `phone`, `msg`, `created_at`, `updated_at`) VALUES
 (3, '7DH28uLemG', 'itsqw@j4bt.com', '6792812669', 'flKL9iVs9o', '2023-04-02 20:26:40', '2023-04-02 20:26:40'),
 (4, 'hpTOFFmPLp', '6hhie@40sd.com', '2151044288', 'YUKuNhJ4e4', '2023-04-26 18:37:16', '2023-04-26 18:37:16'),
-(5, 'Kaden Cherry', 'gavoxeh@mailinator.com', '0124577885', 'Est dolor dolores n', '2023-12-04 20:56:09', '2023-12-04 20:56:09');
+(5, 'Kaden Cherry', 'gavoxeh@mailinator.com', '0124577885', 'Est dolor dolores n', '2023-12-04 20:56:09', '2023-12-04 20:56:09'),
+(6, 'Doris Beard', 'jamacypi@mailinator.com', '01248787', 'Nam alias eos volupt', '2023-12-14 15:19:29', '2023-12-14 15:19:29');
 
 -- --------------------------------------------------------
 
@@ -167,7 +168,7 @@ CREATE TABLE IF NOT EXISTS `f_a_q_s` (
 INSERT INTO `f_a_q_s` (`id`, `question`, `answer`, `video`, `image`, `created_at`, `updated_at`) VALUES
 (1, 'hi', 'hi', NULL, 'storage/faqs/MZ6xTqlSXxoBqVYUSjRV3ccvH5U1uoneZ9f3JuxZ.png', '2023-03-23 08:53:59', '2023-12-05 07:12:10'),
 (3, 'good morning', 'good morning', 'H_bB0sAqLNg', NULL, '2023-03-23 08:55:48', '2023-04-16 19:37:56'),
-(5, 'مرحبا', 'مرحبا كيف الحال', NULL, NULL, '2023-03-27 11:08:57', '2023-03-27 11:08:57'),
+(5, 'مرحبا بك', 'مرحبا', NULL, NULL, '2023-03-27 11:08:57', '2023-12-17 16:57:05'),
 (6, 'كيف حالك', 'بخير الحمد لله', NULL, NULL, '2023-12-04 20:06:59', '2023-12-04 20:06:59'),
 (7, 'كم عمرك؟', '20', NULL, NULL, '2023-12-04 21:00:29', '2023-12-04 21:00:29');
 
@@ -216,7 +217,6 @@ CREATE TABLE IF NOT EXISTS `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_000000_create_users_table', 1),
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
@@ -344,7 +344,7 @@ CREATE TABLE IF NOT EXISTS `testimonails` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `testimonails`
@@ -352,7 +352,8 @@ CREATE TABLE IF NOT EXISTS `testimonails` (
 
 INSERT INTO `testimonails` (`id`, `name`, `job_title`, `description`, `image`, `created_at`, `updated_at`) VALUES
 (1, 'احمدعلي', 'المدير العام', 'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ”', 'storage/testimonails/6vsKN6UsOzLfakpIvjOhi3QIlns2IhvY6MQ4cnso.jpg', '2023-04-02 21:15:24', '2023-12-05 07:08:10'),
-(2, 'ابراهيم محمد', 'اخصائي برمجة', 'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام \"هنا يوجد محتوى نصي، هنا يوجد محتوى نصي\" فتجعلها تبدو (أي الأحرف) وكأنها نص مقروء.', 'storage/testimonails/UrpzAg5RlqhQTfn4Sk4dsbQ1f9ZnMk61it9rx7AQ.png', '2023-12-04 21:39:13', '2023-12-04 21:39:13');
+(2, 'ابراهيم محمد', 'اخصائي برمجة', 'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام \"هنا يوجد محتوى نصي، هنا يوجد محتوى نصي\" فتجعلها تبدو (أي الأحرف) وكأنها نص مقروء.', 'storage/testimonails/UrpzAg5RlqhQTfn4Sk4dsbQ1f9ZnMk61it9rx7AQ.png', '2023-12-04 21:39:13', '2023-12-04 21:39:13'),
+(3, 'Kay Lopez', 'Aliqua Consectetur', 'Beatae voluptatem et', 'storage/testimonails/B1tF5khtVtpteB0qOKX0U06cAVCZjJjGHappjPzB.jpg', '2023-12-14 15:56:04', '2023-12-14 15:56:04');
 
 -- --------------------------------------------------------
 
@@ -363,25 +364,26 @@ INSERT INTO `testimonails` (`id`, `name`, `job_title`, `description`, `image`, `
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `national_id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` text COLLATE utf8mb4_unicode_ci,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_national_id_unique` (`national_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `image`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, '123123123', 'ahmed@123.com', 'storage/users/qjOS9waih7yTlwObbuE7G2Su2l35iOLw2Z4Ss3TW.jpg', NULL, '$2y$10$WIQThIKCcrGtOx/bO9nnBO0uTUVz57C39n4zFThY4XdGbczAJn61S', NULL, '2023-03-20 09:07:15', '2023-05-13 06:22:22'),
-(3, 'ali', 'ali@123.com', 'storage/users/wOQFwfJK6RzSmWPGEN56qja0bnYZT0zcDLI3Eh37.jpg', NULL, '$2y$10$abWLl078cflNdbHDolU1QeAJ4i6zXd.BSBH/mG3iur1mnaJ8RzjNm', NULL, '2023-05-13 06:10:02', '2023-05-13 06:10:02'),
-(4, 'Abraham Sampson', 'aya@gmail.com', 'storage/users/NF75FR4Gx9aTMeRq8EIScdGFWBMftTTADFA4gewe.jpg', NULL, '$2y$10$feTjxRZ3F5c0sVI0F6cmLew2Af/Umnr2i023mqa.edWqT9oabUUKq', NULL, '2023-12-04 20:58:07', '2023-12-04 20:58:07');
+INSERT INTO `users` (`id`, `national_id`, `name`, `email`, `email_verified_at`, `password`, `image`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 145668, 'aya mohamed', 'aya@gmail.com', NULL, '$2y$10$OGlB06nBSHIqnIsoYerdgO.oJ9coNmm0n1NK1OZy1dMmmXEbpcDE.', 'storage/users/NY1pyavKfUv2fZ3jbits7IPpB0DHmw2DNWkOATfe.jpg', NULL, '2023-12-17 16:38:37', '2023-12-17 17:18:39'),
+(2, 71444444, 'Katell Lang', 'pujycebajo@mailinator.com', NULL, '$2y$10$jZOaqMxk1KszFpIl0x.xW.MSDyOrCNeHDZDArcuFYUOWVKWfnJ.6y', 'storage/users/ccoSuxfTw32TkUGtc38WdCTw996xapHI7eI7QvzC.png', NULL, '2023-12-17 17:09:53', '2023-12-17 17:09:53');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

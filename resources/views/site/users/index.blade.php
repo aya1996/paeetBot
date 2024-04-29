@@ -5,9 +5,10 @@
 
 <section class="breadcrumb">
     <div class="img-overlay">
-        <img src="{{asset('front/images/slider.jpg')}}" alt="#" />
+        <img src="{{asset('front/images/slider2.jpg')}}" alt="#" />
     </div>
-    <div class="container">
+    <div class="m-5"></div>
+    <div class="container m-5">
         <div class="row">
             <div class="col-md-12">
                 <div class="text-bread">
@@ -51,6 +52,10 @@
                                     @csrf
                                     @method('PUT')
                                     <div class="form-profile">
+                                    <div class="form-group">
+                                            <label>الرقم المدني </label>
+                                            <input type="text" value="{{auth()->user()->national_id}}" name="national_id" class="form-control" required/>
+                                        </div>
                                         <div class="form-group">
                                             <label>الإسم </label>
                                             <input type="text" value="{{auth()->user()->name}}" name="name" class="form-control" required/>

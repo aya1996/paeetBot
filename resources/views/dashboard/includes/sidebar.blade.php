@@ -79,7 +79,7 @@
                     <a href="{{route('testimonails.index')}}" class="nav-link {{request()->segment(2) == 'testimonails' ? 'active' : ''}}">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            آراء العملاء
+                          آراء الطلاب
                         </p>
                     </a>
                 </li>

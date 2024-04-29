@@ -8,10 +8,12 @@
     <meta name="author" content="Arboon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0D3558">
-    <title>Chatbot</title>
+    <title>PaaetBot</title>
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('front/images/logo.png')}}" />
     <link href="{{asset('front/css/style.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('front/css/mobile.css')}}" rel="stylesheet" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
 
 

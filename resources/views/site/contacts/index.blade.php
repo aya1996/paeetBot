@@ -7,8 +7,9 @@
         <div class="img-overlay">
             <img src="{{asset('front/images/slider2.jpg')}}" alt="#" />
         </div>
-        <div class="container">
-            <div class="row">
+        <div class="m-5"></div>
+        <div class="container m-5">
+            <div class="row ">
                 <div class="col-md-12">
                     <div class="text-bread">
                         <ul>
@@ -50,7 +51,7 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="tel" placeholder="الجوال" name="phone" class="form-control" required>
+                                            <input type="tel" placeholder="رقم الهاتف" name="phone" class="form-control" dir="rtl" required>
                                         </div>
                                     </div>
                                     <div class="col-md-12">

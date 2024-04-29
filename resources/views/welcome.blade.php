@@ -93,7 +93,7 @@
                         <!-- Col -->
                         <div class="col-md-12">
                             <div class="title">
-                                <h3>اراء العملاء</h3>
+                                <h3>أراء الطلاب</h3>
                             </div>
 
                             <div class="owl-carousel owl-theme test-slider">
@@ -120,8 +120,63 @@
                         </div>
                         <!-- /Col -->
                     </div>
+                    <div class="text-center justify-content-center">
+                    <h3>رأيك يهمنا</h3>
+                    <button type="button" class="btn btn-success text-center" data-toggle="modal" data-target="#modal-lg">أرسل رأيك  </button>
+                    </div>
                 </div>
             </section>
         @endif
-
+        {{--  modal add   --}}
+  <div class="modal fade" id="modal-lg">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">أرسل رأيك </h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="{{route('testimonails.store')}}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('POST')
+            <div class="modal-body">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>الإسم</label>
+                                    <input type="text"  name="name" class="form-control" placeholder="الإسم" value="{{old('name')}}" required></input>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>العنوان</label>
+                                    <input type="text"  name="job_title" class="form-control" placeholder=" العنوان" value="{{old('job_title')}}" required></input>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>الوصف</label>
+                                    <textarea  rows="4" name="description" class="form-control" placeholder="الوصف" required>{{old('description')}}</textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>الصورة</label>
+                                    <input type="file" class="form-control" name="image" accept="image/*" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">إغلاق</button>
+                    <button type="submit" class="btn btn-primary">إرسال</button>
+                </div>
+            </div>
+        </form>
+    </div>
+  </div>
+  {{--  modal add   --}}
 @endsection
